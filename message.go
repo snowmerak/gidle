@@ -57,8 +57,8 @@ type Object struct {
 }
 
 type EnumValue struct {
-	Name  string        `@Ident`
-	Value PrimitiveType `"=" @@`
+	Name  string         `@Ident`
+	Value PrimitiveValue `"=" @@`
 }
 
 type Enum struct {
@@ -73,7 +73,8 @@ type ConstField struct {
 }
 
 type Const struct {
-	Type   PrimitiveType `"const" @@`
+	Name   string        `"const" @Ident`
+	Type   PrimitiveType `"for" @@`
 	Fields []ConstField  `"{" @@* "}"`
 }
 
