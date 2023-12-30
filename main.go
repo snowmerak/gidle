@@ -8,23 +8,20 @@ import (
 
 const grammar = `
 object Person {
-	int32 id
-	string name
-	list of string phoneNumbers
-	map int8 for string phoneBook
+    string name
+    int32 age
+    list of string friends
+    map string for string properties
 }
 
-object Test {
-	int32 id
-	string name
-	list of float64 phoneNumbers
-	map uint32 for string phoneBook
+enum CASE for uint8 {
+    UPPER = 0
+    LOWER = 1
 }
 
-const int8 {
-	A = 1
-	B = 2
-	C = 3
+const BOUNDARY for int32 {
+    MAX = 100
+    MIN = 0
 }
 `
 
