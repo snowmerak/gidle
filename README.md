@@ -32,17 +32,27 @@ type <message-name> {
 10. `float64`: 64-bit floating point number
 11. `string`: UTF-8 string
 12. `bool`: boolean value
-13. `[]<type>`: array of type
-14. `map[<key-type>]<value-type>`: map of key-type to value-type
+13. `list of <Type>`: array of type
+14. `map <Key-Type> for <Value-Type>`: map of key-type to value-type
 15. `<message-name>`: message type
 
 ### Example
 
 ```
 type Person {
-    string name;
-    int32 age;
-    []string friends;
-    map[string]int32 scores;
+    string name
+    int32 age
+    list of string friends
+    map string for string properties
+}
+
+enum CASE for uint8 {
+    UPPER = 0
+    LOWER = 1
+}
+
+const BOUNDARY for int32 {
+    MAX = 100
+    MIN = 0
 }
 ```
