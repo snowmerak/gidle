@@ -10,11 +10,25 @@ go install github.com/snowmerak/gidle/cmd/gidle
 
 ## IDL
 
+### Syntax
+
 ```
-type <message-name> {
-    <field-type> <field-name> [ = <default-value> ];
-    <field-type> <field-name> [ = <default-value> ];
-    <field-type> <field-name> [ = <default-value> ];
+const <const-name> for <primitive-type-name> {
+    <field-name> = <field-value>
+    <field-name> = <field-value>
+    <field-name> = <field-value>
+}
+
+enum <enum-name> for <primitive-type-name> {
+    <field-name> = <field-value>
+    <field-name> = <field-value>
+    <field-name> = <field-value>
+}
+
+object <object-name> {
+    <field-type> <field-name>
+    <field-type> <field-name>
+    <field-type> <field-name>
 }
 ```
 
