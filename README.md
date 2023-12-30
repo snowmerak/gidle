@@ -5,7 +5,7 @@ gidle is a simple IDL (Interface Definition Language) for JSON and YAML.
 ## Installation
 
 ```bash
-go install github.com/snowmerak/gidle/cmd/gidle
+go install github.com/snowmerak/gidle
 ```
 
 ## IDL
