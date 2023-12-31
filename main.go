@@ -48,8 +48,8 @@ func main() {
 		generator = NewGoGenerator()
 	case LanguageDart:
 		generator = NewDartGenerator()
-	// case LanguageTypeScript:
-	// 	generator = NewTypeScriptGenerator()
+	case LanguageTypeScript:
+		generator = NewTypeScriptGenerator()
 	// case LanguageRust:
 	// 	generator = NewRustGenerator()
 	default:
