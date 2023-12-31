@@ -128,3 +128,52 @@ const (
 	BOUNDARY_MIN = 0
 )
 ```
+
+```dart
+import 'dart:convert';
+
+class Person {
+	String? name;
+	int? age;
+	List<String>? friends;
+	Map<String, String>? properties;
+
+	Person({
+		this.name,
+		this.age,
+		this.friends,
+		this.properties,
+	});
+
+	toMap() {
+		return {
+			"name": name,
+			"age": age,
+			"friends": friends,
+			"properties": properties,
+		};
+	}
+
+	String toJson() {
+		return jsonEncode(toMap());
+	}
+
+	Person.fromMap(Map<String, dynamic> map) {
+		name = map["name"];
+		age = map["age"];
+		friends = List<String>.from(map["friends"]);
+		properties = Map<String, String>.from(map["properties"]);
+	}
+
+	Person.fromJson(String source) : this.fromMap(jsonDecode(source));
+
+}
+
+enum CASE {
+	UPPER,
+	LOWER,
+}
+
+const BOUNDARY_MAX = 100;
+const BOUNDARY_MIN = 0;
+```
