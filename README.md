@@ -1,6 +1,20 @@
 # gidle
 
-gidle is a simple IDL (Interface Definition Language) for JSON and YAML.
+gidle is a simple IDL (Interface Definition Language) for JSON.
+
+## Supported Languages
+
+1. Go
+2. TypeScript
+3. Dart
+4. Rust
+
+> Rust version depends on [serde_json](https://docs.rs/serde_json/latest/serde_json/)
+> and [serde](https://docs.rs/serde/latest/serde/) crate.
+> You must add them to your `Cargo.toml` file.
+> e.g.
+> serde = { version = <VERSION>, features = ["derive"] }
+> serde_json = <VERSION>
 
 ## Usage
 
