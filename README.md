@@ -253,3 +253,42 @@ export namespace gidle {
   }
 }
 ```
+
+```rust
+use std::collections::HashMap;
+use serde::{Deserialize, Serialize};
+use serde_json::{to_string, from_str, Result};
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct Person {
+	pub name: String,
+	pub age: i32,
+	pub friends: Vec<String>,
+	pub properties: HashMap<String, String>,
+}
+
+impl Person {
+	pub fn new(name: String, age: i32, friends: Vec<String>, properties: HashMap<String, String>) -> Self {
+		Self {
+			name,
+			age,
+			friends,
+			properties,
+		}
+	}
+	pub fn to_json(&self) -> Result<String> {
+		to_string(self)
+	}
+	pub fn from_json(json: &str) -> Result<Self> {
+		from_str(json)
+	}
+}
+
+pub enum CASE {
+	UPPER = 0,
+	LOWER = 1,
+}
+
+pub const BOUNDARY_MAX: i32 = 100;
+pub const BOUNDARY_MIN: i32 = 0;
+```
