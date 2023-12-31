@@ -4,10 +4,10 @@ gidle is a simple IDL (Interface Definition Language) for JSON.
 
 ## Supported Languages
 
-1. Go
-2. TypeScript
-3. Dart
-4. Rust
+1. Go: `gidle -l go`
+2. TypeScript: `gidle -l ts`
+3. Dart: `gidle -l dart`
+4. Rust: `gidle -l rs`
 
 > Rust version depends on [serde_json](https://docs.rs/serde_json/latest/serde_json/)
 > and [serde](https://docs.rs/serde/latest/serde/) crate.
@@ -36,6 +36,7 @@ e.g.
 gidle -i test.gidle -o out/test.go -l go
 gidle -i test.gidle -o out/test.ts -l ts
 gidle -i test.gidle -o out/test.dart -l dart
+gidle -i test.gidle -o out/test.rs -l rs
 ```
 
 ## IDL
