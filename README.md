@@ -16,7 +16,13 @@ go install github.com/snowmerak/gidle@latest
 gidle -i <gidle-file> -o <output-file> -l <language>
 ```
 
-e.g. `gidle -i test.gidle -o out/test.go -l go`
+e.g.
+
+```
+gidle -i test.gidle -o out/test.go -l go
+gidle -i test.gidle -o out/test.ts -l ts
+gidle -i test.gidle -o out/test.dart -l dart
+```
 
 ## IDL
 
