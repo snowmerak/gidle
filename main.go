@@ -12,7 +12,7 @@ const (
 	LanguageGo         = "go"
 	LanguageDart       = "dart"
 	LanguageTypeScript = "ts"
-	LanguageRust       = "rust"
+	LanguageRust       = "rs"
 )
 
 func main() {
@@ -50,8 +50,8 @@ func main() {
 		generator = NewDartGenerator()
 	case LanguageTypeScript:
 		generator = NewTypeScriptGenerator()
-	// case LanguageRust:
-	// 	generator = NewRustGenerator()
+	case LanguageRust:
+		generator = NewRustGenerator()
 	default:
 		panic("unknown language")
 	}
