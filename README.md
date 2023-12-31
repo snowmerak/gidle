@@ -53,7 +53,9 @@ object <object-name> {
 ### Example
 
 ```
-type Person {
+package gidle.test.main
+
+object Person {
     string name
     int32 age
     list of string friends
@@ -69,4 +71,60 @@ const BOUNDARY for int32 {
     MAX = 100
     MIN = 0
 }
+```
+
+```go
+package main
+
+type Person struct {
+	Name       string            `json:"name"`
+	Age        int32             `json:"age"`
+	Friends    []string          `json:"friends"`
+	Properties map[string]string `json:"properties"`
+}
+
+type CASE uint8
+
+const (
+	CASE_UPPER = CASE(0)
+	CASE_LOWER = CASE(1)
+)
+
+func (e CASE) String() string {
+	switch e {
+	case CASE_UPPER:
+		return "UPPER"
+	case CASE_LOWER:
+		return "LOWER"
+	default:
+		return "unknown enum value"
+	}
+}
+
+func GetCASE(index int) (value CASE, ok bool) {
+	switch index {
+	case 0:
+		return CASE_UPPER, true
+	case 1:
+		return CASE_LOWER, true
+	default:
+		return value, false
+	}
+}
+
+func IndexOfCASE(value CASE) (index int, ok bool) {
+	switch value {
+	case CASE_UPPER:
+		return 0, true
+	case CASE_LOWER:
+		return 1, true
+	default:
+		return index, false
+	}
+}
+
+const (
+	BOUNDARY_MAX = 100
+	BOUNDARY_MIN = 0
+)
 ```
