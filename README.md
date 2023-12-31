@@ -187,3 +187,28 @@ enum CASE {
 const BOUNDARY_MAX = 100;
 const BOUNDARY_MIN = 0;
 ```
+
+```typescript
+export namespace gidle {
+export namespace test {
+export namespace main {
+
+export interface Person {
+	name: string;
+	age: number;
+	friends: Array<string>;
+	properties: Map<string,string>;
+}
+
+export enum CASE {
+	UPPER = 0,
+	LOWER = 1,
+}
+
+export const BOUNDARY_MAX = 100;
+export const BOUNDARY_MIN = 0;
+
+}
+}
+}
+```
