@@ -8,6 +8,7 @@ gidle is a simple IDL (Interface Definition Language) for JSON.
 2. TypeScript: `gidle -l ts`
 3. Dart: `gidle -l dart`
 4. Rust: `gidle -l rs`
+5. C#: `gidle -l cs`
 
 > Rust version depends on [serde_json](https://docs.rs/serde_json/latest/serde_json/)
 > and [serde](https://docs.rs/serde/latest/serde/) crate.
@@ -37,6 +38,7 @@ gidle -i test.gidle -o out/test.go -l go
 gidle -i test.gidle -o out/test.ts -l ts
 gidle -i test.gidle -o out/test.dart -l dart
 gidle -i test.gidle -o out/test.rs -l rs
+gidle -i test.gidle -o out/test.cs -l cs
 ```
 
 ## IDL
@@ -291,4 +293,64 @@ pub enum CASE {
 
 pub const BOUNDARY_MAX: i32 = 100;
 pub const BOUNDARY_MIN: i32 = 0;
+```
+
+```csharp
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
+namespace gidle {
+    namespace test {
+        namespace main {
+            public class Person {
+                [JsonPropertyName("name")]
+                public string Name { get; set; }
+                [JsonPropertyName("age")]
+                public int Age { get; set; }
+                [JsonPropertyName("friends")]
+                public List<string> Friends { get; set; }
+                [JsonPropertyName("properties")]
+                public Dictionary<string, string> Properties { get; set; }
+
+                public Person(string name, int age, List<string> friends, Dictionary<string, string> properties) {
+                    this.Name = name;
+                    this.Age = age;
+                    this.Friends = friends;
+                    this.Properties = properties;
+                }
+
+                public static Person? FromJson(string json) {
+                    return JsonSerializer.Deserialize<Person>(json);
+                }
+
+                public string ToJson() {
+                    return JsonSerializer.Serialize(this);
+                }
+
+            }
+            public class CASE {
+                public const byte UPPER = 0;
+                public const byte LOWER = 1;
+                public static int IndexOf(byte value) {
+                    return value switch {
+                        UPPER => 0,
+                        LOWER => 1,
+                        _ => throw new ArgumentOutOfRangeException(nameof(value), "Invalid value")
+                    };
+                }
+                public static byte ValueOf(int index) {
+                    return index switch {
+                        0 => UPPER,
+                        1 => LOWER,
+                        _ => throw new ArgumentOutOfRangeException(nameof(index), "Invalid index")
+                    };
+                }
+            }
+            public static class BOUNDARY {
+                public const int MAX = 100;
+                public const int MIN = 0;
+            }
+        }
+    }
+}
 ```
