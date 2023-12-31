@@ -190,25 +190,45 @@ const BOUNDARY_MIN = 0;
 
 ```typescript
 export namespace gidle {
-export namespace test {
-export namespace main {
+  export namespace test {
+    export namespace main {
+      export interface Person {
+        name: string;
+        age: number;
+        friends: Array<string>;
+        properties: Map<string, string>;
+      }
 
-export interface Person {
-	name: string;
-	age: number;
-	friends: Array<string>;
-	properties: Map<string,string>;
-}
+      export enum CASE {
+        UPPER = 0,
+        LOWER = 1,
+      }
 
-export enum CASE {
-	UPPER = 0,
-	LOWER = 1,
-}
+      export function indexOfCASE(value: CASE): number {
+        switch (value) {
+          case CASE.UPPER:
+            return 0;
+          case CASE.LOWER:
+            return 1;
+          default:
+            return -1;
+        }
+      }
 
-export const BOUNDARY_MAX = 100;
-export const BOUNDARY_MIN = 0;
+      export function getCASE(index: number): CASE {
+        switch (index) {
+          case 0:
+            return CASE.UPPER;
+          case 1:
+            return CASE.LOWER;
+          default:
+            throw new Error("unknown enum value");
+        }
+      }
 
-}
-}
+      export const BOUNDARY_MAX = 100;
+      export const BOUNDARY_MIN = 0;
+    }
+  }
 }
 ```

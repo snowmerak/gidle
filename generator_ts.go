@@ -88,6 +88,48 @@ func (t *TypeScriptGenerator) generateEnum(enum *Enum) {
 		t.buffer.WriteString(",\n")
 	}
 	t.buffer.WriteString("}\n\n")
+
+	t.buffer.WriteString("export function indexOf")
+	t.buffer.WriteString(enum.Name)
+	t.buffer.WriteString("(value: ")
+	t.buffer.WriteString(enum.Name)
+	t.buffer.WriteString("): number {\n")
+	t.buffer.WriteString("\t switch (value) {\n")
+	for i, v := range enum.Body {
+		t.buffer.WriteString("\t\t case ")
+		t.buffer.WriteString(enum.Name)
+		t.buffer.WriteString(".")
+		t.buffer.WriteString(v.Name)
+		t.buffer.WriteString(":\n")
+		t.buffer.WriteString("\t\t\t return ")
+		t.buffer.WriteString(strconv.Itoa(i))
+		t.buffer.WriteString(";\n")
+	}
+	t.buffer.WriteString("\t\t default:\n")
+	t.buffer.WriteString("\t\t\t return -1;\n")
+	t.buffer.WriteString("\t }\n")
+	t.buffer.WriteString("}\n\n")
+
+	t.buffer.WriteString("export function get")
+	t.buffer.WriteString(enum.Name)
+	t.buffer.WriteString("(index: number): ")
+	t.buffer.WriteString(enum.Name)
+	t.buffer.WriteString(" {\n")
+	t.buffer.WriteString("\t switch (index) {\n")
+	for i, v := range enum.Body {
+		t.buffer.WriteString("\t\t case ")
+		t.buffer.WriteString(strconv.Itoa(i))
+		t.buffer.WriteString(":\n")
+		t.buffer.WriteString("\t\t\t return ")
+		t.buffer.WriteString(enum.Name)
+		t.buffer.WriteString(".")
+		t.buffer.WriteString(v.Name)
+		t.buffer.WriteString(";\n")
+	}
+	t.buffer.WriteString("\t\t default:\n")
+	t.buffer.WriteString("\t\t\t throw new Error(\"unknown enum value\");\n")
+	t.buffer.WriteString("\t }\n")
+	t.buffer.WriteString("}\n\n")
 }
 
 func (t *TypeScriptGenerator) generateType(ty *Type) {
