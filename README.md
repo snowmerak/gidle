@@ -63,7 +63,7 @@ object <object-name> {
 11. `string`: UTF-8 string
 12. `bool`: boolean value
 13. `list of <Type>`: array of type
-14. `map <Key-Type> for <Value-Type>`: map of key-type to value-type
+14. `map <Key-Type> for <Value-Type>`: map of key-type for value-type
 15. `<message-name>`: message type
 
 ### Example
