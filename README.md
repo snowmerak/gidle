@@ -2,11 +2,21 @@
 
 gidle is a simple IDL (Interface Definition Language) for JSON and YAML.
 
-## Installation
+## Usage
+
+### Install
 
 ```bash
-go install github.com/snowmerak/gidle
+go install github.com/snowmerak/gidle@latest
 ```
+
+### Generate
+
+```bash
+gidle -i <gidle-file> -o <output-file> -l <language>
+```
+
+e.g. `gidle -i test.gidle -o out/test.go -l go`
 
 ## IDL
 
